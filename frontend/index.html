@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vaishnavi Enterprises - Premium eco-friendly sal leaf plates. Biodegradable, compostable and perfect for conscious dining.">
+    <title>Vaishnavi Enterprises</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <h2 class="logo">
+        <a href="#home">Vaishnavi Enterprises</a>
+    </h2>
+
+    <!-- Hamburger toggle for mobile -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <i class='bx bx-menu'></i>
+    </div>
+
+    <nav>
+        <ul class="navbar" id="navMenu">
+            <li><a href="#home" onclick="closeMenu()">Home</a></li>
+            <li><a href="#products" onclick="closeMenu()">Products</a></li>
+            <li><a href="#reviews" onclick="closeMenu()">Reviews</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-btn" id="auth-section">
+        <a href="#" class="sign-up" onclick="openSignup()">Sign Up</a>
+        <a href="#" class="sign-in" onclick="openSignin()">Sign In</a>
+    </div>
+
+    <div id="user-section" class="user-section" style="display: none;">
+        <span id="welcome"></span>
+        <button id="my-orders-btn" onclick="openOrderHistory()">My Orders</button>
+        <button id="logout" onclick="logout()">Logout</button>
+    </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Nature on Your Table</h1>
+        <p>
+            Premium eco-friendly plates made with 100% natural sal leaves.<br>
+            Biodegradable, compostable and perfect for conscious dining.
+        </p>
+        <a href="#products" class="hero-btn">Explore Products</a>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+    <div class="heading">
+        <span>Our Collection</span>
+        <h1>Explore Our Sal Leaf Plate Collection</h1>
+    </div>
+    <div id="product-list" class="products-container"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="why-section">
+    <div class="why-overlay"></div>
+    <div class="why-content">
+        <h2>Why Choose Our Plates?</h2>
+        <p>
+            Our eco-friendly plates are made from natural sal leaves, ensuring
+            sustainability without compromising quality. They are biodegradable,
+            durable, and perfect for all occasions while helping protect the environment.
+        </p>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="feature-card">
+        <i class='bx bx-leaf'></i>
+        <h3>Eco-Friendly</h3>
+        <p>Made from 100% natural sal leaves with zero chemicals.</p>
+    </div>
+    <div class="feature-card">
+        <i class='bx bx-recycle'></i>
+        <h3>Biodegradable</h3>
+        <p>Decomposes naturally within weeks, leaving no trace behind.</p>
+    </div>
+    <div class="feature-card">
+        <i class='bx bx-shield-alt-2'></i>
+        <h3>Durable</h3>
+        <p>Strong enough for full meals including liquids and curries.</p>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+    <div class="heading">
+        <span>Reviews</span>
+        <h1>What Our Customers Say</h1>
+    </div>
+    <div class="reviews-container">
+        <div class="review-card">
+            <div class="stars">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star-half'></i>
+            </div>
+            <p>"The quality of these leaf plates is really impressive. They are sturdy, completely eco-friendly, and perfect for family functions. I love how they help reduce plastic usage without compromising convenience."</p>
+            <h4>-- Ramesh K.</h4>
+        </div>
+        <div class="review-card">
+            <div class="stars">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star-half'></i>
+            </div>
+            <p>"We used these plates for a small event and everyone appreciated the idea. They are biodegradable, hygienic, and strong enough for full meals. Practical and environmentally responsible."</p>
+            <h4>-- Priya S.</h4>
+        </div>
+        <div class="review-card">
+            <div class="stars">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+            </div>
+            <p>"I was looking for eco-friendly alternatives and these plates exceeded my expectations. They are durable, neatly designed, and completely natural. Highly recommended!"</p>
+            <h4>-- Anil M.</h4>
+        </div>
+    </div>
+</section>
+
+<!-- ORDER CTA -->
+<div class="order-section">
+    <h2>Ready to Go Eco-Friendly?</h2>
+    <p>Join hundreds of happy customers making a sustainable choice.</p>
+    <button class="order-btn" onclick="goToOrder()">Place Your Order</button>
+</div>
+
+<!-- CONTACT INFO BAR -->
+<section class="contact-info">
+    <div class="info-box">
+        <i class='bx bx-map'></i>
+        <h3>Location</h3>
+        <p>Hyderabad, Telangana</p>
+    </div>
+    <div class="info-box">
+        <i class='bx bx-phone'></i>
+        <h3>Mobile</h3>
+        <p>+91 7702573025</p>
+    </div>
+    <div class="info-box">
+        <i class='bx bx-envelope'></i>
+        <h3>Email</h3>
+        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3640575f455e5857405f535842534446445f45534576515b575f5a1855595b">[email&#160;protected]</a></p>
+    </div>
+    <div class="info-box">
+        <i class='bx bx-globe'></i>
+        <h3>Web</h3>
+        <p>www.vaishnavienterprises.in</p>
+    </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+        <h2>Quick Enquiry</h2>
+        <p class="subtitle">We'll get back to you as soon as possible</p>
+        <div class="input-group">
+            <input type="text" id="name" required>
+            <label>Your Name</label>
+        </div>
+        <div class="input-group">
+            <input type="email" id="email" required>
+            <label>Email Address</label>
+        </div>
+        <div class="input-group">
+            <textarea id="message" rows="4" required></textarea>
+            <label>Your Message</label>
+        </div>
+        <button onclick="sendEnquiry()" class="send-btn">Send Message</button>
+    </div>
+</section>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/917702573025" class="whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+    <i class='bx bxl-whatsapp'></i>
+</a>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <h3>Vaishnavi Enterprises</h3>
+        <p>Eco-friendly sal leaf plates for a sustainable future.</p>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <p class="copyright">&copy; 2026 Vaishnavi Enterprises. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h3 id="popup-title">Enquiry Sent!</h3>
+        <p id="popup-message">We will contact you soon.</p>
+    </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeSignup()">&times;</span>
+        <h2>Create Account</h2>
+        <input type="text" id="signupName" placeholder="Full Name">
+        <input type="email" id="signupEmail" placeholder="Email">
+        <input type="password" id="signupPassword" placeholder="Password">
+        <button class="submit-btn" onclick="registerUser()">Register</button>
+    </div>
+</div>
+
+<!-- SIGNIN MODAL -->
+<div id="signin-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeSignin()">&times;</span>
+        <h2>Sign In</h2>
+        <input type="email" id="signin-email" placeholder="Enter Email">
+        <input type="password" id="signin-password" placeholder="Enter Password">
+        <button class="submit-btn" onclick="loginUser()">Login</button>
+        <p class="forgot-link"><a href="#" onclick="openForgotPassword(); return false;">Forgot Password?</a></p>
+    </div>
+</div>
+
+<!-- FORGOT PASSWORD MODAL -->
+<div id="forgotModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForgotPassword()">&times;</span>
+        <h2>Reset Password</h2>
+        <input type="email" id="forgot-email" placeholder="Your registered email">
+        <input type="password" id="forgot-new-password" placeholder="New password">
+        <input type="password" id="forgot-confirm-password" placeholder="Confirm new password">
+        <button class="submit-btn" onclick="resetPassword()">Reset Password</button>
+    </div>
+</div>
+
+<!-- ORDER HISTORY MODAL -->
+<div id="orderHistoryModal" class="modal">
+    <div class="modal-content modal-wide">
+        <span class="close-btn" onclick="closeOrderHistory()">&times;</span>
+        <h2>My Orders</h2>
+        <div id="order-history-list"></div>
+    </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+</body>
+</html>

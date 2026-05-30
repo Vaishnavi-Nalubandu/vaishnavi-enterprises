@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order - Vaishnavi Enterprises</title>
+    <link rel="stylesheet" href="order.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Back to home -->
+    <a href="index.html" class="back-link">
+        <i class='bx bx-arrow-back'></i> Back to Home
+    </a>
+
+    <section class="order-page">
+        <div class="form-container">
+            <h2>Place Your Order</h2>
+            <p class="form-subtitle">Fill in the details and we'll reach out to confirm.</p>
+
+            <form id="orderForm">
+
+                <div class="form-group">
+                    <label for="product">Product</label>
+                    <select id="product_id" name="product" required>
+                        <option value="" disabled selected>Select Product</option>
+                        <option value="1">Big Round Leaf Plate</option>
+                        <option value="2">Small Round Leaf Plate</option>
+                        <option value="3">Bowl Leaf Plate</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" placeholder="e.g. 100" required min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+                </div>
+
+                <button type="submit" id="submitBtn">Place Order</button>
+            </form>
+
+            <!-- Success message -->
+            <div id="order-success" class="order-success" style="display:none;">
+                <i class='bx bx-check-circle'></i>
+                <h3>Order Placed Successfully!</h3>
+                <p>We will contact you shortly to confirm your order.</p>
+                <a href="index.html" class="back-btn">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="order.js"></script>
+
+</body>
+</html>
