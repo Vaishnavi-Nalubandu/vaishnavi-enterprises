@@ -27,7 +27,7 @@ function loadProducts() {
                 card.innerHTML = `
                     <img src="${images[index % images.length]}" alt="${product.name}" loading="lazy" />
                     <h2>${product.name}</h2>
-                    <h3>Rs. ${product.price}</h3>
+                    <h3>Rs.${Math.round(product.price)} per pack</h3>
                     <a href="#" class="btn" onclick="goToOrder(${product.id}); return false;">Buy Now</a>
                 `;
                 container.appendChild(card);
@@ -59,7 +59,7 @@ function showFallbackProducts() {
         card.innerHTML = `
             <img src="${product.img}" alt="${product.name}" loading="lazy" />
             <h2>${product.name}</h2>
-            <h3>Rs. ${product.price} ${product.unit}</h3>
+            <h3>Rs.${product.price} per pack</h3>
             <a href="#" class="btn" onclick="goToOrder(${index + 1}); return false;">Buy Now</a>
         `;
 
@@ -382,7 +382,7 @@ function openOrderHistory() {
                     <td>${order.id}</td>
                     <td>${order.product_name || "N/A"}</td>
                     <td>${order.quantity}</td>
-                    <td>Rs. ${order.price || "N/A"}</td>
+                    <td>Rs.${order.price ? Math.round(order.price) : "N/A"} per pack</td>
                     <td>${order.phone}</td>
                 </tr>`;
             });
