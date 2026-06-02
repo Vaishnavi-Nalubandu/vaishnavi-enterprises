@@ -46,22 +46,31 @@ CREATE TABLE IF NOT EXISTS products (
     }
 });
 
-db.query(`
-INSERT INTO products (name, size, price, stock) VALUES
-('Leaf Plate', 'Large', 250.00, 50),
-('Leaf Plate', 'Medium', 180.00, 40),
-('Leaf Plate', 'Small', 120.00, 30)
-`, (err) => {
+db.query("SELECT COUNT(*) AS count FROM products", (err, result) => {
     if (err) {
-        console.error("Insert error:", err.message);
+        console.error(err);
+        return;
+    }
+
+    if (result[0].count === 0) {
+        db.query(`
+            INSERT INTO products (name, size, price, stock) VALUES
+            ('Leaf Plate', 'Large', 250.00, 50),
+            ('Leaf Plate', 'Medium', 180.00, 40),
+            ('Leaf Plate', 'Small', 120.00, 30)
+        `, (err) => {
+            if (err) console.error(err);
+            else console.log("✅ Sample products inserted ONCE");
+        });
     } else {
-        console.log("✅ Sample products inserted");
+        console.log("ℹ️ Products already exist, skipping insert");
     }
 });
 
 
 // ===== DEFAULT ROUTE =====
 app.get("/", (req, res) => {
+    console.log("Serving file from:", path.join(__dirname, "frontend", "index.html"));
     res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
