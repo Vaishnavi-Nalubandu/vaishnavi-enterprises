@@ -43,21 +43,26 @@ function loadProducts() {
 
 function showFallbackProducts() {
     const container = document.getElementById('product-list');
+
     const fallback = [
-        { name: "Big Round Leaf Plate", price: "150 per pack", img: "images/big plates.png" },
-        { name: "Small Round Leaf Plate", price: "100 per pack", img: "images/small plates.png" },
-        { name: "Bowl Leaf Plate", price: "80 per pack", img: "images/bowl leaf plates.png" }
+        { name: "Big Round Leaf Plate", price: 150, unit: "per pack", img: "images/big plates.png" },
+        { name: "Small Round Leaf Plate", price: 100, unit: "per pack", img: "images/small plates.png" },
+        { name: "Bowl Leaf Plate", price: 80, unit: "per pack", img: "images/bowl leaf plates.png" }
     ];
+
+    container.innerHTML = ""; // (prevents duplicates)
 
     fallback.forEach((product, index) => {
         const card = document.createElement('div');
         card.classList.add('box');
+
         card.innerHTML = `
             <img src="${product.img}" alt="${product.name}" loading="lazy" />
             <h2>${product.name}</h2>
-            <h3>Rs. ${product.price}</h3>
+            <h3>Rs. ${product.price} ${product.unit}</h3>
             <a href="#" class="btn" onclick="goToOrder(${index + 1}); return false;">Buy Now</a>
         `;
+
         container.appendChild(card);
     });
 }
@@ -392,4 +397,41 @@ function openOrderHistory() {
 
 function closeOrderHistory() {
     document.getElementById("orderHistoryModal").style.display = "none";
+}
+function placeOrder() {
+    const product_id = new URLSearchParams(window.location.search).get("product");
+    const quantity = document.getElementById("quantity").value;
+    const customer_name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+
+    if (!product_id || !quantity || !customer_name || !phone) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    fetch(`${API_BASE}/orders`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            product_id,
+            quantity,
+            customer_name,
+            phone
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert("✅ Order placed successfully!");
+            window.location.href = "index.html";
+        } else {
+            alert(data.message || "Error placing order");
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Server error");
+    });
 }

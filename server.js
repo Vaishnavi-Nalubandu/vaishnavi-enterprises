@@ -204,6 +204,14 @@ app.post("/signup", async (req, res) => {
         res.json({ success: true });
     });
 });
+db.query(`
+CREATE TABLE IF NOT EXISTS enquiries (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    message TEXT
+)
+`);
 
 
 // ===== SIGNIN =====
@@ -211,7 +219,7 @@ app.post("/signin", (req, res) => {
     const { email, password } = req.body;
 
     db.query("SELECT * FROM users WHERE email = ?", [email], async (err, result) => {
-        if (result.length === 0) {
+        if (!result || result.length === 0) {
             return res.status(404).json({ success: false, message: "User not found" });
         }
 
